@@ -1,0 +1,70 @@
+{% extends './base.html' %}
+
+
+{% block contents %}
+<div class="container mt-5">
+    <div class="row justify-content-center" mt-4>
+        <div class="col-md-12">.
+            <h3 class="text-center mb-4">Daftar Harian Pengiriman Barang</h3>
+            <p><span id="hasil"></span></p>
+                  
+              <div style="margin-bottom: 25px;">
+
+                <a class="badge bg-success float-end " href="{% url 'create' %}" role="button"><i class="bi bi-plus-square" ></i></a>
+              </div>
+         
+            
+            <table id="table_harian" class="table table-bordered border-primary ">
+                <thead class="">
+                  <tr>                  
+                  
+                    <th scope="col">No. Resi</th>
+                    <th scope="col">Nama Barang</th>
+                    <th scope="col">Kategori</th>                    
+                    <th scope="col">Nama Pengirim</th>     
+                    <th scope="col">Alamat Pengirim</th>     
+                    <th scope="col">Nama Penerima</th>     
+                    <th scope="col">Alamat Penerima</th>    
+                    <th scope="col">Berat</th>       
+                    <th scope="col">@Kilo</th>
+                    <th scope="col">Tarif</th>
+                  
+                           
+                         
+                        
+                  </tr>
+                </thead>
+                <tbody>
+
+                     
+                      {% for s in shipping %}
+                        <tr>                     
+                        <td>{{s.resi}}</td>
+                        <td>{{s.nama_barang}}</td>
+                        <td>{{s.kategori}}</td>                        
+                        <td>{{s.nama_pengirim}}</td>               
+                        <td>{{s.alamat_pengirim}}</td>     
+                        <td>{{s.nama_penerima}}</td>     
+                        <td>{{s.alamat_penerima}}</td>     
+                        <td>{{s.berat}}</td>
+                        <td>{{s.tarif_per_kilo}}</td>
+                        <td >{{s.tarif}}</td>                                 
+                        </tr>
+                      
+                      {% endfor %}                    
+                 
+                </tbody>
+              </table>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock contents %}
+
+
+
+
